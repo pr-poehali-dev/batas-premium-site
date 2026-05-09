@@ -12,87 +12,59 @@ const ICE_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c
 const WATER_IMG = "https://cdn.poehali.dev/files/922ce53b-3cdf-4469-8938-5cfb416d9b64.jpg";
 const GRASS_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/f297f4ba-cd40-4d73-93e9-b0278b697f89.jpg";
 
+const MAMMOTH_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/files/d952a992-362f-4610-9f0e-95c84a7bfff1.jpg";
+const KRICHA_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/files/f2a17d9a-0e44-4b0a-ab9d-d67301eb43cd.jpg";
+const KAP_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/files/a38bebc9-fdbf-4feb-85f2-aed8bba0381b.jpg";
+
 const navItems = [
   { label: "О бренде", id: "about" },
-  { label: "Коллекции", id: "collections" },
+  { label: "Изделия", id: "collections" },
   { label: "Материалы", id: "materials" },
-  { label: "Мастера", id: "masters" },
+  { label: "Мастер", id: "masters" },
   { label: "Галерея", id: "gallery" },
   { label: "Контакты", id: "contacts" },
 ];
 
-const collections = [
+const crafts = [
   {
-    name: "БАЛТА",
-    sub: "Традиционный",
-    desc: "Классический якутский нож с рукоятью из капа берёзы. Клинок из кованой крицы с характерным выраженным доломом.",
-    detail: "Длина клинка 120 мм · Сталь У8А · Кап берёзы",
+    img: STONE_IMG,
+    label: "Авторское изделие",
+    material: "Крица · Кап берёзы",
+    origin: "Изготовлено в Якутии · Ручная работа",
   },
   {
-    name: "МАМОНТ",
-    sub: "Премиальный",
-    desc: "Рукоять из бивня мамонта возрастом 10 000 лет. Каждое изделие несёт в себе память тысячелетий северной земли.",
-    detail: "Длина клинка 140 мм · Дамаск · Бивень мамонта",
+    img: HERO_IMG,
+    label: "Авторское изделие",
+    material: "Крица · Бивень мамонта",
+    origin: "Натуральные материалы · Ручная работа",
   },
   {
-    name: "САХА",
-    sub: "Коллекционный",
-    desc: "Нож, воплощающий дух народа Саха. Рукоять из зуба мамонта с традиционными орнаментами в технике золотой инкрустации.",
-    detail: "Длина клинка 160 мм · Булат · Зуб мамонта",
+    img: GRASS_IMG,
+    label: "Авторское изделие",
+    material: "Крица · Серебро · Кожа",
+    origin: "Изготовлено в Якутии · Ручная работа",
   },
 ];
 
-const materials = [
+const materialItems = [
   {
-    icon: "Flame",
+    img: KRICHA_IMG,
     title: "Крица",
-    text: "Традиционный якутский металл, полученный методом прямого восстановления железа. Крица придаёт клинку особую гибкость и стойкость к низким температурам Севера.",
+    sub: "Традиционный якутский металл",
+    text: "Получен методом прямого восстановления железа. Придаёт клинку гибкость и стойкость к северным температурам.",
   },
   {
-    icon: "Mountain",
+    img: MAMMOTH_IMG,
     title: "Бивень мамонта",
-    text: "Добытый в вечной мерзлоте Якутии, бивень возрастом от 5 000 до 40 000 лет. Уникальная текстура с перламутровым отливом — у каждого изделия неповторимый рисунок.",
+    sub: "Из вечной мерзлоты Якутии",
+    text: "Возраст от 5 000 до 40 000 лет. Перламутровый отлив — каждый фрагмент неповторим.",
   },
   {
-    icon: "Leaf",
+    img: KAP_IMG,
     title: "Кап берёзы",
-    text: "Наросты на якутской берёзе с плотной свилеватой структурой. После многолетней сушки и пропитки превращается в материал прочнее дуба с живым природным узором.",
+    sub: "Природный нарост якутской берёзы",
+    text: "Плотная свилеватая структура. После многолетней сушки — прочнее дуба, с живым природным рисунком.",
   },
-  {
-    icon: "Gem",
-    title: "Зуб мамонта",
-    text: "Пластины зуба мамонта с характерным шевронным рисунком дентина. Редкий материал, каждый фрагмент которого обрабатывается вручную якутскими мастерами.",
-  },
-];
-
-const masters = [
-  {
-    name: "Айал Борисов",
-    title: "Главный мастер",
-    exp: "32 года опыта",
-    bio: "Потомственный кузнец в третьем поколении. Освоил технику ковки крицы у отца, бережно сохраняет древние методы народа Саха. Его ножи хранятся в коллекциях по всему миру.",
-  },
-  {
-    name: "Михаил Попов",
-    title: "Мастер резьбы",
-    exp: "18 лет опыта",
-    bio: "Специализируется на работе с бивнем и зубом мамонта. Каждую рукоять создаёт месяцами, превращая фрагменты вечной мерзлоты в произведения искусства.",
-  },
-  {
-    name: "Степан Николаев",
-    title: "Кузнец-оружейник",
-    exp: "25 лет опыта",
-    bio: "Мастер булатной и дамасской стали. Кует клинки по старинным рецептам, добавляя в каждое лезвие частицу северного духа и вековых традиций якутской металлургии.",
-  },
-];
-
-const galleryItems = [
-  { img: HERO_IMG, label: "Нож на углях · Крица · Бивень мамонта" },
-  { img: STONE_IMG, label: "Якутский нож на камне · Кап берёзы" },
-  { img: ICE_IMG, label: "Нож на льду · Вечная мерзлота Якутии" },
-  { img: GRASS_IMG, label: "Традиционный нож · Кожаная рукоять" },
-  { img: WATER_IMG, label: "Коллекционный нож · Зуб мамонта" },
-  { img: COLLECTION_IMG, label: "Подарочная упаковка БАТАС" },
 ];
 
 export default function Index() {
@@ -226,108 +198,105 @@ export default function Index() {
 
       <div className="batas-hr" />
 
-      {/* ─── КОЛЛЕКЦИИ ─── */}
+      {/* ─── ИЗДЕЛИЯ ─── */}
       <section id="collections" className="batas-section">
         <div className="batas-section-head">
-          <p className="batas-eyebrow">Коллекции</p>
-          <h2 className="batas-h2 batas-h2--center">Линейки <em>BATAS</em></h2>
+          <p className="batas-eyebrow">Изделия</p>
+          <h2 className="batas-h2 batas-h2--center">Авторские <em>работы</em></h2>
         </div>
 
-        <div className="batas-cards">
-          {collections.map((item, i) => (
-            <div key={i} className="batas-card">
-              <div className="batas-card__top-line" />
-              <p className="batas-card__sub">{item.sub}</p>
-              <h3 className="batas-card__name">{item.name}</h3>
-              <div className="batas-card__dash" />
-              <p className="batas-card__desc">{item.desc}</p>
-              <p className="batas-card__detail">{item.detail}</p>
+        <div className="batas-craft-grid">
+          {crafts.map((item, i) => (
+            <div key={i} className="batas-craft-card">
+              <div className="batas-craft-img-wrap">
+                <img src={item.img} alt={item.label} className="batas-craft-img" />
+                <div className="batas-craft-overlay" />
+              </div>
+              <div className="batas-craft-info">
+                <p className="batas-craft-label">{item.label}</p>
+                <p className="batas-craft-material">{item.material}</p>
+                <p className="batas-craft-origin">{item.origin}</p>
+              </div>
             </div>
           ))}
-        </div>
-
-        <div className="batas-gallery-feature">
-          <img src={COLLECTION_IMG} alt="Коллекция ножей BATAS" className="batas-feature-img" />
-          <div className="batas-feature-line" />
         </div>
       </section>
 
       {/* ─── МАТЕРИАЛЫ ─── */}
-      <section id="materials" className="batas-section batas-section--dark">
-        <div className="batas-section-head">
-          <p className="batas-eyebrow">Материалы</p>
-          <h2 className="batas-h2 batas-h2--center">Дары <em>Севера</em></h2>
-          <p className="batas-section-desc">
-            Каждый материал мы добываем и обрабатываем в Якутии. Тысячелетняя мерзлота
-            сохранила для нас то, что не воссоздать нигде в мире.
+      <section id="materials" className="batas-mat-section">
+        <div className="batas-mat-header">
+          <p className="batas-eyebrow batas-eyebrow--light">Материалы</p>
+          <h2 className="batas-h2">Дары <em>Севера</em></h2>
+          <p className="batas-mat-intro">
+            Материалы из глубин Якутии — редкие, древние, неповторимые.
           </p>
         </div>
 
-        <div className="batas-mat-grid">
-          {materials.map((mat, i) => (
-            <div key={i} className="batas-mat-card">
-              <div className="batas-mat-icon">
-                <Icon name={mat.icon} fallback="Star" size={20} />
+        <div className="batas-mat-exhibits">
+          {materialItems.map((mat, i) => (
+            <div key={i} className="batas-mat-exhibit">
+              <div className="batas-mat-photo-wrap">
+                <img src={mat.img} alt={mat.title} className="batas-mat-photo" />
+                <div className="batas-mat-photo-veil" />
               </div>
-              <h3 className="batas-mat-title">{mat.title}</h3>
-              <p className="batas-mat-text">{mat.text}</p>
+              <div className="batas-mat-body">
+                <p className="batas-mat-sub">{mat.sub}</p>
+                <h3 className="batas-mat-name">{mat.title}</h3>
+                <div className="batas-mat-rule" />
+                <p className="batas-mat-desc">{mat.text}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ─── МАСТЕРА ─── */}
-      <section id="masters" className="batas-section">
-        <div className="batas-section-head">
-          <p className="batas-eyebrow">Мастера</p>
-          <h2 className="batas-h2 batas-h2--center">Хранители <em>традиции</em></h2>
-        </div>
-
-        <div className="batas-masters">
-          {masters.map((master, i) => (
-            <div key={i} className="batas-master">
-              <div className="batas-master__line">
-                <div className="batas-master__diamond" />
-              </div>
-              <p className="batas-master__exp">{master.exp}</p>
-              <h3 className="batas-master__name">{master.name}</h3>
-              <p className="batas-master__title">{master.title}</p>
-              <p className="batas-master__bio">{master.bio}</p>
-            </div>
-          ))}
+      {/* ─── МАСТЕР ─── */}
+      <section id="masters" className="batas-section batas-section--dark">
+        <div className="batas-master-single">
+          <div className="batas-master-single__img-wrap">
+            <img src={FORGE_IMG} alt="Василий Попов — Бааха Уус" className="batas-master-single__img" />
+            <div className="batas-master-single__veil" />
+          </div>
+          <div className="batas-master-single__text">
+            <p className="batas-eyebrow batas-eyebrow--light">Мастер</p>
+            <h2 className="batas-h2">
+              Василий Попов<br /><em>Бааха Уус</em>
+            </h2>
+            <p className="batas-master-single__role">Главный мастер BATAS · Дархан Уус</p>
+            <div className="batas-master-single__rule" />
+            <p className="batas-master-single__bio">
+              Василий Попов — Бааха Уус — главный мастер BATAS, обладатель титула Дархан Уус и один из известных мастеров Якутии.
+            </p>
+            <p className="batas-master-single__bio">
+              На протяжении многих лет сохраняет традиции якутского ножевого ремесла, соединяя древние техники ковки с авторским подходом и премиальными натуральными материалами.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* ─── ПРОИЗВОДСТВО ─── */}
-      <section className="batas-section batas-section--dark">
+      <section className="batas-section">
         <div className="batas-two-col batas-two-col--reverse">
           <div className="batas-img-wrap">
             <div className="batas-img-glow" />
-            <img src={ICE_IMG} alt="Якутский нож на льду" className="batas-img batas-img--tall" />
+            <img src={ICE_IMG} alt="Якутский нож" className="batas-img batas-img--tall" />
           </div>
           <div>
             <p className="batas-eyebrow">Производство</p>
             <h2 className="batas-h2">Сделано в<br /><em>Якутии</em></h2>
             <div className="batas-text-block">
               <p>
-                Наша мастерская находится в Якутске. Здесь, в краю вечной мерзлоты и белых ночей,
-                рождаются ножи BATAS. Производство полностью ручное — от добычи сырья до финальной полировки.
+                Изделия BATAS создаются в Якутии — на родине якутского ножа. Производство основано на ручной работе мастеров, традиционных техниках обработки металла и внимании к каждой детали.
               </p>
-              <blockquote className="batas-blockquote">
-                Клинок проходит через 47 этапов обработки — ковка, закалка, шлифовка, заточка.
-                На каждый нож уходит от 3 до 6 месяцев.
-              </blockquote>
               <p>
-                Металл куём по старинным рецептам — низкотемпературная ковка даёт клинку
-                уникальную геометрию с характерным доломом, позволяющим работать без поверхностного скольжения.
-                Это особенность якутского ножа, которой нет больше нигде в мире.
+                Каждый клинок проходит путь от заготовки и ковки до шлифовки, заточки и финальной полировки. Именно ручная работа делает каждое изделие индивидуальным.
               </p>
             </div>
-            <div className="batas-process-stats">
-              {[["47", "этапов"], ["3–6", "месяцев"], ["100%", "ручная работа"]].map(([num, lbl], i) => (
-                <div key={i} className="batas-process-stat">
-                  <p className="batas-stat__num">{num}</p>
-                  <p className="batas-stat__label">{lbl}</p>
+            <div className="batas-prod-accents">
+              {["Сделано в Якутии", "Ручная работа", "Натуральные материалы"].map((txt, i) => (
+                <div key={i} className="batas-prod-accent">
+                  <div className="batas-prod-accent__dot" />
+                  <span>{txt}</span>
                 </div>
               ))}
             </div>
@@ -336,21 +305,20 @@ export default function Index() {
       </section>
 
       {/* ─── ГАЛЕРЕЯ ─── */}
-      <section id="gallery" className="batas-section">
-        <div className="batas-section-head">
-          <p className="batas-eyebrow">Галерея</p>
-          <h2 className="batas-h2 batas-h2--center">Изделия <em>BATAS</em></h2>
+      <section id="gallery" className="batas-cinema-section">
+        <div className="batas-cinema-header">
+          <p className="batas-eyebrow batas-eyebrow--light">Галерея</p>
+          <h2 className="batas-h2">Изделия <em>BATAS</em></h2>
         </div>
-
-        <div className="batas-gallery">
-          {galleryItems.map((item, i) => (
-            <div key={i} className="batas-gallery__item">
-              <img src={item.img} alt={item.label} className="batas-gallery__img" />
-              <div className="batas-gallery__caption">
-                <p className="batas-eyebrow" style={{ color: "#c9a96e" }}>{item.label}</p>
-              </div>
-            </div>
-          ))}
+        <div className="batas-cinema-main">
+          <img src={HERO_IMG} alt="Авторское изделие BATAS" className="batas-cinema-img batas-cinema-img--large" />
+          <div className="batas-cinema-side">
+            <img src={WATER_IMG} alt="Авторское изделие BATAS" className="batas-cinema-img batas-cinema-img--sm" />
+            <img src={COLLECTION_IMG} alt="Авторское изделие BATAS" className="batas-cinema-img batas-cinema-img--sm" />
+          </div>
+        </div>
+        <div className="batas-cinema-caption">
+          <p className="batas-eyebrow batas-eyebrow--light">Авторские изделия · Ручная работа · Якутия</p>
         </div>
       </section>
 
@@ -867,173 +835,220 @@ export default function Index() {
           padding-top: 1rem;
         }
 
-        /* ── FEATURE IMAGE ── */
-        .batas-gallery-feature { text-align: center; }
-        .batas-feature-img {
-          width: 100%;
-          max-width: 56rem;
-          margin: 0 auto;
-          height: clamp(250px, 35vw, 500px);
-          object-fit: cover;
-          display: block;
-        }
-        .batas-feature-line {
-          height: 1px;
-          background: linear-gradient(to right, transparent, rgba(201,169,110,0.2), transparent);
-          max-width: 56rem;
-          margin: 0 auto;
-        }
-
-        /* ── MATERIALS ── */
-        .batas-mat-grid {
+        /* ── CRAFT GRID (изделия) ── */
+        .batas-craft-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1.5rem;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2.5rem;
         }
-        @media (max-width: 1024px) { .batas-mat-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .batas-mat-grid { grid-template-columns: 1fr; } }
-        .batas-mat-card {
-          border: 1px solid rgba(42,35,24,0.4);
-          padding: 2rem;
-          text-align: center;
-          transition: border-color 0.5s;
+        @media (max-width: 900px) { .batas-craft-grid { grid-template-columns: 1fr; gap: 3rem; } }
+        .batas-craft-card { display: flex; flex-direction: column; gap: 1.25rem; }
+        .batas-craft-img-wrap {
+          position: relative;
+          overflow: hidden;
         }
-        .batas-mat-card:hover { border-color: rgba(201,169,110,0.2); }
-        .batas-mat-icon {
-          width: 3rem; height: 3rem;
-          border: 1px solid rgba(201,169,110,0.3);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto 1.5rem;
-          color: #c9a96e;
-          transition: border-color 0.3s;
+        .batas-craft-img {
+          width: 100%;
+          height: clamp(320px, 40vw, 520px);
+          object-fit: contain;
+          background: #0d0c0b;
+          display: block;
+          transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
         }
-        .batas-mat-card:hover .batas-mat-icon { border-color: rgba(201,169,110,0.6); }
-        .batas-mat-title {
+        .batas-craft-card:hover .batas-craft-img { transform: scale(1.03); }
+        .batas-craft-overlay {
+          position: absolute; inset: 0;
+          background: linear-gradient(to top, rgba(5,4,3,0.6) 0%, transparent 50%);
+        }
+        .batas-craft-info { padding: 0 0.25rem; }
+        .batas-craft-label {
           font-family: 'Cormorant Garamond', serif;
-          font-size: 1.25rem;
+          font-size: 1.1rem;
+          font-weight: 300;
           color: #f0e8dc;
-          margin-bottom: 1rem;
+          margin-bottom: 0.4rem;
         }
-        .batas-mat-text {
-          color: #9a8878;
-          font-size: 0.75rem;
-          line-height: 1.8;
+        .batas-craft-material {
+          font-size: 10px;
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          color: #c9a96e;
+          margin-bottom: 0.3rem;
+        }
+        .batas-craft-origin {
+          font-size: 9px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: rgba(154,136,120,0.6);
         }
 
-        /* ── MASTERS ── */
-        .batas-masters {
+        /* ── MATERIALS EXHIBITS ── */
+        .batas-mat-section {
+          background: #06050480;
+          padding: 8rem 3rem;
+        }
+        @media (max-width: 768px) { .batas-mat-section { padding: 5rem 1.5rem; } }
+        .batas-mat-header {
+          max-width: 1280px;
+          margin: 0 auto 5rem;
+        }
+        .batas-mat-intro {
+          color: #9a8878;
+          font-size: 0.875rem;
+          line-height: 1.9;
+          max-width: 32rem;
+          margin-top: 0.5rem;
+        }
+        .batas-mat-exhibits {
+          max-width: 1280px;
+          margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 3rem;
         }
-        @media (max-width: 1024px) { .batas-masters { grid-template-columns: 1fr; } }
-        .batas-master { }
-        .batas-master__line {
-          width: 100%;
-          height: 1px;
-          background: rgba(201,169,110,0.2);
+        @media (max-width: 1024px) { .batas-mat-exhibits { grid-template-columns: 1fr; gap: 4rem; } }
+        .batas-mat-exhibit { display: flex; flex-direction: column; gap: 0; }
+        .batas-mat-photo-wrap {
           position: relative;
-          margin-bottom: 2rem;
+          overflow: hidden;
+          margin-bottom: 1.75rem;
         }
-        .batas-master__diamond {
-          position: absolute;
-          top: 50%; left: 0;
-          transform: translate(-50%, -50%) rotate(45deg);
-          width: 12px; height: 12px;
-          border: 1px solid rgba(201,169,110,0.4);
-          transition: border-color 0.3s;
+        .batas-mat-photo {
+          width: 100%;
+          height: 340px;
+          object-fit: cover;
+          display: block;
+          transition: transform 1s cubic-bezier(0.25,0.46,0.45,0.94);
+          filter: brightness(0.85) saturate(0.8);
         }
-        .batas-master:hover .batas-master__diamond { border-color: #c9a96e; }
-        .batas-master__exp {
+        .batas-mat-exhibit:hover .batas-mat-photo { transform: scale(1.04); filter: brightness(0.95) saturate(1); }
+        .batas-mat-photo-veil {
+          position: absolute; inset: 0;
+          background: linear-gradient(to top, rgba(5,4,3,0.5) 0%, transparent 60%);
+        }
+        .batas-mat-sub {
+          font-size: 9px;
+          letter-spacing: 0.35em;
+          text-transform: uppercase;
+          color: rgba(201,169,110,0.6);
+          margin-bottom: 0.75rem;
+        }
+        .batas-mat-name {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.5rem, 2.5vw, 2rem);
+          font-weight: 300;
+          color: #f0e8dc;
+          margin-bottom: 1rem;
+          line-height: 1.1;
+        }
+        .batas-mat-rule {
+          width: 2rem;
+          height: 1px;
+          background: rgba(201,169,110,0.35);
+          margin-bottom: 1rem;
+        }
+        .batas-mat-desc {
+          color: #9a8878;
+          font-size: 0.82rem;
+          line-height: 1.9;
+        }
+
+        /* ── MASTER SINGLE ── */
+        .batas-master-single {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 6rem;
+          align-items: center;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 3rem;
+        }
+        @media (max-width: 900px) {
+          .batas-master-single { grid-template-columns: 1fr; gap: 3rem; padding: 0; }
+        }
+        .batas-master-single__img-wrap {
+          position: relative;
+          overflow: hidden;
+        }
+        .batas-master-single__img {
+          width: 100%;
+          height: 560px;
+          object-fit: contain;
+          background: #0d0c0b;
+          display: block;
+          filter: brightness(0.9) saturate(0.7);
+          transition: filter 0.7s;
+        }
+        .batas-master-single__img-wrap:hover .batas-master-single__img { filter: brightness(1) saturate(1); }
+        .batas-master-single__veil {
+          position: absolute; inset: 0;
+          background: linear-gradient(to right, rgba(8,8,7,0.4) 0%, transparent 60%);
+          pointer-events: none;
+        }
+        .batas-master-single__text { padding: 0; }
+        .batas-master-single__role {
           font-size: 9px;
           letter-spacing: 0.3em;
           text-transform: uppercase;
-          color: rgba(201,169,110,0.6);
-          margin-bottom: 0.5rem;
+          color: rgba(201,169,110,0.7);
+          margin-bottom: 2rem;
         }
-        .batas-master__name {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.6rem;
-          color: #f0e8dc;
-          margin-bottom: 0.25rem;
+        .batas-master-single__rule {
+          width: 2.5rem;
+          height: 1px;
+          background: rgba(201,169,110,0.3);
+          margin: 1.5rem 0;
         }
-        .batas-master__title {
-          font-size: 10px;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #c9a96e;
-          margin-bottom: 1.5rem;
-        }
-        .batas-master__bio {
+        .batas-master-single__bio {
           color: #9a8878;
           font-size: 0.875rem;
-          line-height: 1.8;
+          line-height: 1.9;
+          margin-bottom: 1rem;
         }
 
-        /* ── BLOCKQUOTE ── */
-        .batas-blockquote {
-          border-left: 2px solid rgba(201,169,110,0.3);
-          padding-left: 1.5rem;
-          font-family: 'Cormorant Garamond', serif;
-          font-style: italic;
-          color: #c9a96e;
-          font-size: 1.1rem;
-          margin: 0;
-        }
-
-        /* ── PROCESS STATS ── */
-        .batas-process-stats {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1rem;
+        /* ── PRODUCTION ACCENTS ── */
+        .batas-prod-accents {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
           margin-top: 2.5rem;
         }
-        .batas-process-stat {
-          border: 1px solid #2a2318;
-          padding: 1rem;
-          text-align: center;
+        .batas-prod-accent {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 10px;
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          color: rgba(201,169,110,0.7);
+        }
+        .batas-prod-accent__dot {
+          width: 4px; height: 4px;
+          background: rgba(201,169,110,0.5);
+          border-radius: 50%;
+          flex-shrink: 0;
         }
 
-        /* ── GALLERY ── */
-        .batas-gallery {
+        /* ── CINEMA GALLERY ── */
+        .batas-cinema-section {
+          padding: 8rem 3rem;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+        @media (max-width: 768px) { .batas-cinema-section { padding: 5rem 1.5rem; } }
+        .batas-cinema-header { margin-bottom: 3rem; }
+        .batas-cinema-main {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1rem;
+          grid-template-columns: 2fr 1fr;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
         }
-        @media (max-width: 900px) { .batas-gallery { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .batas-gallery { grid-template-columns: 1fr; } }
-        .batas-gallery__item {
-          position: relative;
-          overflow: hidden;
-          cursor: pointer;
-        }
-        .batas-gallery__img {
-          width: 100%;
-          height: clamp(220px, 28vw, 400px);
-          object-fit: contain;
-          background: #0d0c0b;
-          filter: grayscale(1);
-          transition: filter 0.7s, transform 0.7s;
-          display: block;
-          padding: 1rem;
-        }
-        .batas-gallery__item:hover .batas-gallery__img {
-          filter: grayscale(0);
-          transform: scale(1.03);
-        }
-        .batas-gallery__caption {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(10,10,10,0.8), transparent);
-          display: flex;
-          align-items: flex-end;
-          padding: 1.5rem;
-          opacity: 0;
-          transition: opacity 0.5s;
-        }
-        .batas-gallery__item:hover .batas-gallery__caption { opacity: 1; }
+        @media (max-width: 768px) { .batas-cinema-main { grid-template-columns: 1fr; } }
+        .batas-cinema-side { display: flex; flex-direction: column; gap: 1.5rem; }
+        .batas-cinema-img { width: 100%; display: block; object-fit: contain; background: #0d0c0b; }
+        .batas-cinema-img--large { height: clamp(320px, 45vw, 620px); }
+        .batas-cinema-img--sm { height: clamp(140px, 18vw, 290px); flex: 1; }
+        .batas-cinema-caption { text-align: center; margin-top: 1rem; }
 
         /* ── CONTACTS ── */
         .batas-contacts {
