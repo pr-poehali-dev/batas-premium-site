@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 const LOGO_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/f1bd798c-b383-4137-8834-5ea926e95a60.png";
+const SHOP_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/52ce39f9-5899-46da-8040-be852f688cb0.jpg";
+const KNIFE_HERO_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/files/198bb206-daa7-431f-a21d-6e4c40bce416.jpg";
 const HERO_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/ab85f460-5651-46b0-bfce-9c5faa449ca4.jpg";
 const FORGE_IMG = "https://cdn.poehali.dev/files/965d81b1-ccfa-42d5-b4d4-08d713b205b7.jpg";
 const COLLECTION_IMG = "https://cdn.poehali.dev/files/5196942c-5c7f-40d6-85f5-b7fc3a64f5bd.jpg";
@@ -141,31 +143,37 @@ export default function Index() {
 
       {/* ─── HERO ─── */}
       <section id="hero" className="batas-hero">
-        <div className="batas-hero__bg" style={{ backgroundImage: `url(${HERO_IMG})` }} />
+        <div className="batas-hero__bg" style={{ backgroundImage: `url(${SHOP_IMG})` }} />
         <div className="batas-hero__overlay" />
-        <div className="batas-hero__glow" />
+        <div className="batas-hero__overlay2" />
 
-        <div className="batas-hero__content">
-          <p className="batas-eyebrow batas-anim" style={{ animationDelay: "0.3s" }}>
-            Якутия · Ручная работа · Народ Саха
-          </p>
-          <h1 className="batas-hero__title batas-anim" style={{ animationDelay: "0.6s" }}>
-            BATAS
-          </h1>
-          <p className="batas-hero__subtitle batas-anim" style={{ animationDelay: "0.9s" }}>
-            Искусство якутского ножа
-          </p>
-          <p className="batas-hero__desc batas-anim" style={{ animationDelay: "1.2s" }}>
-            Ножи ручной работы мастеров Якутии. Традиции народа Саха, воплощённые в каждом клинке.
-            Материалы вечной мерзлоты — бивень мамонта, крица, кап берёзы.
-          </p>
-          <div className="batas-hero__actions batas-anim" style={{ animationDelay: "1.5s" }}>
-            <button onClick={() => scrollTo("collections")} className="batas-btn batas-btn--gold">
+        <div className="batas-hero__layout">
+          {/* Левая часть — текст */}
+          <div className="batas-hero__left batas-anim" style={{ animationDelay: "0.4s" }}>
+            <p className="batas-eyebrow batas-eyebrow--light">
+              Якутия · Народ Саха
+            </p>
+            <div className="batas-hero__logo-block">
+              <img src={LOGO_IMG} alt="БАТАС" className="batas-hero__logo-img" />
+            </div>
+            <p className="batas-hero__tagline">
+              Премиальные якутские ножи
+            </p>
+            <div className="batas-hero__divider" />
+            <p className="batas-hero__manifesto">
+              Каждый клинок — единственный в своём роде.
+            </p>
+            <button onClick={() => scrollTo("collections")} className="batas-btn batas-btn--gold batas-anim" style={{ animationDelay: "0.9s", marginTop: "2.5rem" }}>
               Открыть коллекцию
             </button>
-            <button onClick={() => scrollTo("about")} className="batas-btn batas-btn--outline">
-              О бренде
-            </button>
+          </div>
+
+          {/* Правая часть — нож */}
+          <div className="batas-hero__right batas-anim" style={{ animationDelay: "0.7s" }}>
+            <div className="batas-hero__knife-frame">
+              <img src={KNIFE_HERO_IMG} alt="Якутский нож БАТАС" className="batas-hero__knife-img" />
+              <div className="batas-hero__knife-glow" />
+            </div>
           </div>
         </div>
 
@@ -198,21 +206,9 @@ export default function Index() {
               </p>
               <p>Мы не производим серийные изделия. Каждый клинок — единственный в своём роде.</p>
             </div>
-            <div className="batas-stats">
-              <div className="batas-stat">
-                <p className="batas-stat__num">3</p>
-                <p className="batas-stat__label">мастера</p>
-              </div>
-              <div className="batas-divider-v" />
-              <div className="batas-stat">
-                <p className="batas-stat__num">∞</p>
-                <p className="batas-stat__label">уникальных изделий</p>
-              </div>
-              <div className="batas-divider-v" />
-              <div className="batas-stat">
-                <p className="batas-stat__num">100%</p>
-                <p className="batas-stat__label">ручная работа</p>
-              </div>
+            <div className="batas-about-signature">
+              <div className="batas-about-line" />
+              <p className="batas-about-sign-text">Каждый клинок — единственный в своём роде</p>
             </div>
           </div>
           <div className="batas-img-wrap">
@@ -530,6 +526,118 @@ export default function Index() {
           justify-content: center;
           overflow: hidden;
         }
+        .batas-hero__overlay2 {
+          position: absolute; inset: 0;
+          background: linear-gradient(105deg, rgba(5,4,3,0.82) 0%, rgba(5,4,3,0.55) 50%, rgba(5,4,3,0.25) 100%);
+          z-index: 2;
+        }
+        .batas-hero__layout {
+          position: relative;
+          z-index: 10;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: center;
+          width: 100%;
+          max-width: 1280px;
+          padding: 0 4rem;
+          padding-top: 80px;
+        }
+        @media (max-width: 900px) {
+          .batas-hero__layout {
+            grid-template-columns: 1fr;
+            padding: 80px 1.5rem 0;
+            text-align: center;
+          }
+          .batas-hero__right { display: none; }
+        }
+        .batas-hero__left { display: flex; flex-direction: column; align-items: flex-start; }
+        @media (max-width: 900px) { .batas-hero__left { align-items: center; } }
+
+        .batas-eyebrow--light { color: rgba(201,169,110,0.7); margin-bottom: 1.5rem; }
+
+        .batas-hero__logo-block { margin-bottom: 1.5rem; }
+        .batas-hero__logo-img {
+          height: 90px;
+          width: auto;
+          filter: brightness(0) invert(1);
+          opacity: 0.95;
+        }
+        @media (max-width: 900px) { .batas-hero__logo-img { height: 70px; } }
+
+        .batas-hero__tagline {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+          font-weight: 300;
+          font-style: italic;
+          color: #c9a96e;
+          letter-spacing: 0.05em;
+          margin-bottom: 1.5rem;
+        }
+        .batas-hero__divider {
+          width: 3rem;
+          height: 1px;
+          background: linear-gradient(to right, #c9a96e, transparent);
+          margin-bottom: 1.5rem;
+        }
+        @media (max-width: 900px) { .batas-hero__divider { margin: 0 auto 1.5rem; } }
+        .batas-hero__manifesto {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1rem, 1.5vw, 1.15rem);
+          font-weight: 300;
+          color: rgba(240,232,220,0.7);
+          letter-spacing: 0.03em;
+          line-height: 1.6;
+        }
+
+        /* knife frame */
+        .batas-hero__right { display: flex; align-items: center; justify-content: center; }
+        .batas-hero__knife-frame {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          max-width: 480px;
+        }
+        .batas-hero__knife-img {
+          width: 100%;
+          height: 560px;
+          object-fit: contain;
+          object-position: center;
+          filter: drop-shadow(0 0 60px rgba(201,169,110,0.25));
+          position: relative;
+          z-index: 2;
+        }
+        .batas-hero__knife-glow {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(ellipse at center, rgba(201,169,110,0.12) 0%, transparent 70%);
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        /* about signature */
+        .batas-about-signature {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 0.5rem;
+        }
+        .batas-about-line {
+          width: 2rem;
+          height: 1px;
+          background: rgba(201,169,110,0.4);
+          flex-shrink: 0;
+        }
+        .batas-about-sign-text {
+          font-family: 'Cormorant Garamond', serif;
+          font-style: italic;
+          font-size: 0.95rem;
+          color: rgba(201,169,110,0.7);
+          letter-spacing: 0.02em;
+        }
+
         .batas-hero__bg {
           position: absolute; inset: 0;
           background-size: cover;
@@ -538,56 +646,8 @@ export default function Index() {
         }
         .batas-hero__overlay {
           position: absolute; inset: 0;
-          background: linear-gradient(to bottom, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.35) 50%, rgba(10,10,10,1) 100%);
-        }
-        .batas-hero__glow {
-          position: absolute;
-          bottom: 33%;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 600px; height: 200px;
-          background: rgba(201,169,110,0.08);
-          filter: blur(80px);
-          border-radius: 50%;
-        }
-        .batas-hero__content {
-          position: relative;
-          z-index: 10;
-          text-align: center;
-          padding: 0 1.5rem;
-          max-width: 56rem;
-          margin: 0 auto;
-        }
-        .batas-hero__title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(4rem, 12vw, 9rem);
-          font-weight: 300;
-          color: #f0e8dc;
-          letter-spacing: 0.15em;
-          line-height: 1;
-          margin-bottom: 1rem;
-        }
-        .batas-hero__subtitle {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(1.25rem, 3vw, 1.75rem);
-          font-weight: 300;
-          font-style: italic;
-          color: #c9a96e;
-          margin-bottom: 1.5rem;
-        }
-        .batas-hero__desc {
-          color: #9a8878;
-          font-size: 0.9rem;
-          letter-spacing: 0.02em;
-          max-width: 38rem;
-          margin: 0 auto 3rem;
-          line-height: 1.8;
-        }
-        .batas-hero__actions {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          justify-content: center;
+          background: linear-gradient(to bottom, rgba(5,4,3,0.3) 0%, rgba(5,4,3,0) 40%, rgba(5,4,3,0.95) 100%);
+          z-index: 1;
         }
 
         /* ── BUTTONS ── */
