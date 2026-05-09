@@ -46,24 +46,29 @@ const crafts = [
   },
 ];
 
+const KAP_REAL_IMG = "https://cdn.poehali.dev/files/a0844362-0ad1-4cf9-b7a2-b9fa529080d4.png";
+const MAMMOTH_REAL_IMG = "https://cdn.poehali.dev/files/74459937-f72b-4beb-bc6b-56c68b2e499f.png";
+const RUNE_STONE_IMG = "https://cdn.poehali.dev/files/7665313d-166d-40d9-bd0d-7f562fe415bb.png";
+const KRICHA_REAL_IMG = "https://cdn.poehali.dev/files/a1186fa1-7e13-48bb-a41e-455aedbe4166.png";
+
 const materialItems = [
   {
-    img: KRICHA_IMG,
-    title: "Крица",
-    sub: "Традиционный якутский металл",
-    text: "Получен методом прямого восстановления железа. Придаёт клинку гибкость и стойкость к северным температурам.",
+    img: KAP_REAL_IMG,
+    title: "Кап берёзы",
+    sub: "Природный нарост якутской берёзы",
+    text: "Плотная свилеватая структура. После многолетней сушки — прочнее дуба, с живым природным рисунком.",
   },
   {
-    img: MAMMOTH_IMG,
+    img: MAMMOTH_REAL_IMG,
     title: "Бивень мамонта",
     sub: "Из вечной мерзлоты Якутии",
     text: "Возраст от 5 000 до 40 000 лет. Перламутровый отлив — каждый фрагмент неповторим.",
   },
   {
-    img: KAP_IMG,
-    title: "Кап берёзы",
-    sub: "Природный нарост якутской берёзы",
-    text: "Плотная свилеватая структура. После многолетней сушки — прочнее дуба, с живым природным рисунком.",
+    img: KRICHA_REAL_IMG,
+    title: "Крица",
+    sub: "Традиционный якутский металл",
+    text: "Получен методом прямого восстановления железа. Придаёт клинку гибкость и стойкость к северным температурам.",
   },
 ];
 
@@ -198,27 +203,31 @@ export default function Index() {
 
       <div className="batas-hr" />
 
-      {/* ─── ИЗДЕЛИЯ ─── */}
-      <section id="collections" className="batas-section">
-        <div className="batas-section-head">
-          <p className="batas-eyebrow">Изделия</p>
-          <h2 className="batas-h2 batas-h2--center">Авторские <em>работы</em></h2>
-        </div>
-
-        <div className="batas-craft-grid">
-          {crafts.map((item, i) => (
-            <div key={i} className="batas-craft-card">
-              <div className="batas-craft-img-wrap">
-                <img src={item.img} alt={item.label} className="batas-craft-img" />
-                <div className="batas-craft-overlay" />
-              </div>
-              <div className="batas-craft-info">
-                <p className="batas-craft-label">{item.label}</p>
-                <p className="batas-craft-material">{item.material}</p>
-                <p className="batas-craft-origin">{item.origin}</p>
-              </div>
+      {/* ─── РУНЫ И ОРНАМЕНТЫ ─── */}
+      <section id="collections" className="batas-rune-section">
+        <div className="batas-rune-layout">
+          <div className="batas-rune-img-wrap">
+            <img src={RUNE_STONE_IMG} alt="Древние руны народа Саха" className="batas-rune-img" />
+            <div className="batas-rune-veil" />
+          </div>
+          <div className="batas-rune-text">
+            <p className="batas-eyebrow batas-eyebrow--light">Традиции</p>
+            <h2 className="batas-h2">
+              Знаки<br /><em>Севера</em>
+            </h2>
+            <div className="batas-rune-rule" />
+            <p className="batas-rune-body">
+              Каждое изделие BATAS несёт в себе символику народа Саха — древние орнаменты и знаки, передававшиеся из поколения в поколение тысячи лет.
+            </p>
+            <p className="batas-rune-body">
+              Якутские мастера вносили в клинок и рукоять смысл: защиту, силу, связь с Севером. Не просто украшение — язык предков.
+            </p>
+            <div className="batas-rune-tags">
+              <span>Северная эстетика</span>
+              <span>Символика Саха</span>
+              <span>Традиционный орнамент</span>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -880,6 +889,68 @@ export default function Index() {
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: rgba(154,136,120,0.6);
+        }
+
+        /* ── RUNE SECTION ── */
+        .batas-rune-section {
+          padding: 8rem 3rem;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+        @media (max-width: 768px) { .batas-rune-section { padding: 5rem 1.5rem; } }
+        .batas-rune-layout {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 6rem;
+          align-items: center;
+        }
+        @media (max-width: 1024px) {
+          .batas-rune-layout { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        .batas-rune-img-wrap {
+          position: relative;
+          overflow: hidden;
+        }
+        .batas-rune-img {
+          width: 100%;
+          height: clamp(380px, 50vw, 580px);
+          object-fit: cover;
+          display: block;
+          transition: transform 1s cubic-bezier(0.25,0.46,0.45,0.94);
+          filter: brightness(0.9) saturate(0.85);
+        }
+        .batas-rune-img-wrap:hover .batas-rune-img { transform: scale(1.03); filter: brightness(1) saturate(1); }
+        .batas-rune-veil {
+          position: absolute; inset: 0;
+          background: linear-gradient(135deg, rgba(5,4,3,0.3) 0%, transparent 60%);
+          pointer-events: none;
+        }
+        .batas-rune-text { }
+        .batas-rune-rule {
+          width: 2.5rem;
+          height: 1px;
+          background: rgba(201,169,110,0.35);
+          margin: 1.5rem 0;
+        }
+        .batas-rune-body {
+          color: #9a8878;
+          font-size: 0.875rem;
+          line-height: 1.9;
+          margin-bottom: 1rem;
+        }
+        .batas-rune-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          margin-top: 2rem;
+        }
+        .batas-rune-tags span {
+          font-size: 9px;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: rgba(201,169,110,0.6);
+          border: 1px solid rgba(201,169,110,0.2);
+          padding: 0.4rem 0.9rem;
         }
 
         /* ── MATERIALS EXHIBITS ── */
