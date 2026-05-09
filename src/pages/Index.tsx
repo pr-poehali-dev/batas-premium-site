@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/files/5203f8d4-06ba-4fc7-8299-ff2aeb7aa3f2.jpg";
-const FORGE_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/files/dde35c73-92f4-43c4-b41e-cd63f60f1e46.jpg";
-const COLLECTION_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/files/ba1fc97f-3bec-4f15-8af4-6d4ed3f291e8.jpg";
+const LOGO_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/f1bd798c-b383-4137-8834-5ea926e95a60.png";
+const HERO_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/ab85f460-5651-46b0-bfce-9c5faa449ca4.jpg";
+const FORGE_IMG = "https://cdn.poehali.dev/files/965d81b1-ccfa-42d5-b4d4-08d713b205b7.jpg";
+const COLLECTION_IMG = "https://cdn.poehali.dev/files/5196942c-5c7f-40d6-85f5-b7fc3a64f5bd.jpg";
+const STONE_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/839106de-ad44-457b-a81a-6a7de1157508.jpg";
+const ICE_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/145a1dda-e26f-4b50-9bb7-298df71beaf3.jpg";
+const WATER_IMG = "https://cdn.poehali.dev/files/922ce53b-3cdf-4469-8938-5cfb416d9b64.jpg";
+const GRASS_IMG = "https://cdn.poehali.dev/projects/884bd571-7ab3-4c26-9a11-87544c71b4ff/bucket/f297f4ba-cd40-4d73-93e9-b0278b697f89.jpg";
 
 const navItems = [
   { label: "О бренде", id: "about" },
@@ -80,9 +85,12 @@ const masters = [
 ];
 
 const galleryItems = [
-  { img: HERO_IMG, label: "Якутский нож. Крица · Бивень мамонта" },
-  { img: FORGE_IMG, label: "Ковка клинка. Мастерская Якутск" },
-  { img: COLLECTION_IMG, label: "Коллекция BATAS 2024" },
+  { img: HERO_IMG, label: "Нож на углях · Крица · Бивень мамонта" },
+  { img: STONE_IMG, label: "Якутский нож на камне · Кап берёзы" },
+  { img: ICE_IMG, label: "Нож на льду · Вечная мерзлота Якутии" },
+  { img: GRASS_IMG, label: "Традиционный нож · Кожаная рукоять" },
+  { img: WATER_IMG, label: "Коллекционный нож · Зуб мамонта" },
+  { img: COLLECTION_IMG, label: "Подарочная упаковка БАТАС" },
 ];
 
 export default function Index() {
@@ -105,7 +113,7 @@ export default function Index() {
       {/* ─── NAVBAR ─── */}
       <header className={`batas-nav ${scrolled ? "batas-nav--scrolled" : ""}`}>
         <div className="batas-nav__inner">
-          <span className="batas-logo" onClick={() => scrollTo("hero")}>BATAS</span>
+          <img src={LOGO_IMG} alt="БАТАС" className="batas-logo-img" onClick={() => scrollTo("hero")} />
 
           <nav className="batas-nav__links">
             {navItems.map((item) => (
@@ -209,7 +217,7 @@ export default function Index() {
           </div>
           <div className="batas-img-wrap">
             <div className="batas-img-glow" />
-            <img src={FORGE_IMG} alt="Кузнец за работой" className="batas-img batas-img--hover-color" />
+            <img src={FORGE_IMG} alt="Нож на наковальне" className="batas-img batas-img--hover-color" />
             <div className="batas-img-caption-overlay">
               <div className="batas-img-caption">
                 <p className="batas-quote">«Каждый удар молота — это молитва»</p>
@@ -299,7 +307,7 @@ export default function Index() {
         <div className="batas-two-col batas-two-col--reverse">
           <div className="batas-img-wrap">
             <div className="batas-img-glow" />
-            <img src={HERO_IMG} alt="Якутский нож" className="batas-img batas-img--tall" />
+            <img src={ICE_IMG} alt="Якутский нож на льду" className="batas-img batas-img--tall" />
           </div>
           <div>
             <p className="batas-eyebrow">Производство</p>
@@ -380,7 +388,7 @@ export default function Index() {
 
       {/* ─── FOOTER ─── */}
       <footer className="batas-footer">
-        <span className="batas-footer__logo">BATAS</span>
+        <img src={LOGO_IMG} alt="БАТАС" className="batas-footer__logo-img" />
         <p className="batas-footer__copy">© 2024 BATAS · Якутия · Россия</p>
         <p className="batas-footer__sub">Традиции народа Саха</p>
       </footer>
@@ -468,6 +476,17 @@ export default function Index() {
           color: #c9a96e;
           cursor: pointer;
         }
+        .batas-logo-img {
+          height: 48px;
+          width: auto;
+          cursor: pointer;
+          filter: invert(1) brightness(0.85) sepia(0.3) saturate(1.5) hue-rotate(5deg);
+          transition: filter 0.3s;
+        }
+        .batas-logo-img:hover {
+          filter: invert(1) brightness(1) sepia(0.5) saturate(2) hue-rotate(5deg);
+        }
+        @media (max-width: 768px) { .batas-logo-img { height: 38px; } }
         .batas-nav__links {
           display: flex;
           gap: 2rem;
@@ -922,7 +941,8 @@ export default function Index() {
           grid-template-columns: repeat(3, 1fr);
           gap: 1rem;
         }
-        @media (max-width: 900px) { .batas-gallery { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .batas-gallery { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .batas-gallery { grid-template-columns: 1fr; } }
         .batas-gallery__item {
           position: relative;
           overflow: hidden;
@@ -993,6 +1013,12 @@ export default function Index() {
           font-size: 1.25rem;
           letter-spacing: 0.3em;
           color: rgba(201,169,110,0.6);
+        }
+        .batas-footer__logo-img {
+          height: 36px;
+          width: auto;
+          filter: invert(1) brightness(0.5) sepia(0.2);
+          opacity: 0.5;
         }
         .batas-footer__copy, .batas-footer__sub {
           font-size: 9px;
