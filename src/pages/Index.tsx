@@ -147,7 +147,7 @@ export default function Index() {
 
         <div className="batas-hero__content">
           <p className="batas-eyebrow batas-anim" style={{ animationDelay: "0.3s" }}>
-            Якутия · Ручная работа · С 1987
+            Якутия · Ручная работа · Народ Саха
           </p>
           <h1 className="batas-hero__title batas-anim" style={{ animationDelay: "0.6s" }}>
             BATAS
@@ -191,19 +191,14 @@ export default function Index() {
                 Он был неотъемлемой частью культуры и мировоззрения северного народа.
               </p>
               <p>
-                В 1987 году потомственный кузнец Айал Борисов основал мастерскую, где традиционные
-                методы ковки соединились с требованиями современного коллекционного искусства.
-                Сегодня каждый нож BATAS — это месяцы работы, передаваемые из рук в руки знания
+                Потомственные кузнецы основали мастерскую, где традиционные методы ковки
+                соединились с требованиями современного коллекционного искусства.
+                Каждый нож BATAS — это месяцы работы, передаваемые из рук в руки знания
                 и уважение к вечным материалам Севера.
               </p>
               <p>Мы не производим серийные изделия. Каждый клинок — единственный в своём роде.</p>
             </div>
             <div className="batas-stats">
-              <div className="batas-stat">
-                <p className="batas-stat__num">37</p>
-                <p className="batas-stat__label">лет традиции</p>
-              </div>
-              <div className="batas-divider-v" />
               <div className="batas-stat">
                 <p className="batas-stat__num">3</p>
                 <p className="batas-stat__label">мастера</p>
@@ -212,6 +207,11 @@ export default function Index() {
               <div className="batas-stat">
                 <p className="batas-stat__num">∞</p>
                 <p className="batas-stat__label">уникальных изделий</p>
+              </div>
+              <div className="batas-divider-v" />
+              <div className="batas-stat">
+                <p className="batas-stat__num">100%</p>
+                <p className="batas-stat__label">ручная работа</p>
               </div>
             </div>
           </div>
@@ -682,12 +682,13 @@ export default function Index() {
         .batas-img {
           width: 100%;
           height: 500px;
-          object-fit: cover;
+          object-fit: contain;
+          background: #0d0c0b;
           filter: grayscale(1);
           transition: filter 0.7s;
           display: block;
         }
-        .batas-img--tall { height: 600px; }
+        .batas-img--tall { height: 600px; object-fit: contain; background: #0d0c0b; }
         .batas-img--hover-color:hover { filter: grayscale(0); }
         .batas-img-caption-overlay {
           position: absolute;
@@ -951,14 +952,16 @@ export default function Index() {
         .batas-gallery__img {
           width: 100%;
           height: clamp(220px, 28vw, 400px);
-          object-fit: cover;
+          object-fit: contain;
+          background: #0d0c0b;
           filter: grayscale(1);
           transition: filter 0.7s, transform 0.7s;
           display: block;
+          padding: 1rem;
         }
         .batas-gallery__item:hover .batas-gallery__img {
           filter: grayscale(0);
-          transform: scale(1.05);
+          transform: scale(1.03);
         }
         .batas-gallery__caption {
           position: absolute;
