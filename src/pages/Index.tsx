@@ -50,6 +50,11 @@ const KAP_REAL_IMG = "https://cdn.poehali.dev/files/a0844362-0ad1-4cf9-b7a2-b9fa
 const MAMMOTH_REAL_IMG = "https://cdn.poehali.dev/files/74459937-f72b-4beb-bc6b-56c68b2e499f.png";
 const RUNE_STONE_IMG = "https://cdn.poehali.dev/files/7665313d-166d-40d9-bd0d-7f562fe415bb.png";
 const KRICHA_REAL_IMG = "https://cdn.poehali.dev/files/a1186fa1-7e13-48bb-a41e-455aedbe4166.png";
+const KNIFE_ICE_IMG = "https://cdn.poehali.dev/files/81c23427-d3f9-4fd8-9bb6-aba1728e8e36.jpg";
+const MASTER_IMG = "https://cdn.poehali.dev/files/17727c2e-9998-44e7-9377-bbf40c4ba26b.jpg";
+const HORSE_SYMBOL_IMG = "https://cdn.poehali.dev/files/b9f127c7-71bd-4d3a-8346-7f28e36ee08f.png";
+const KNIFE_STAND1_IMG = "https://cdn.poehali.dev/files/32ded62d-b0ce-47be-b3de-1023301b48ac.png";
+const KNIFE_STAND2_IMG = "https://cdn.poehali.dev/files/3a163131-440b-4496-8e24-84456ff18859.png";
 
 const materialItems = [
   {
@@ -124,34 +129,23 @@ export default function Index() {
         <div className="batas-hero__overlay" />
         <div className="batas-hero__overlay2" />
 
-        <div className="batas-hero__layout">
-          {/* Левая часть — текст */}
-          <div className="batas-hero__left batas-anim" style={{ animationDelay: "0.4s" }}>
-            <p className="batas-eyebrow batas-eyebrow--light">
-              Якутия · Народ Саха
-            </p>
-            <div className="batas-hero__logo-block">
-              <img src={LOGO_IMG} alt="БАТАС" className="batas-hero__logo-img" />
-            </div>
-            <p className="batas-hero__tagline">
-              Премиальные якутские ножи
-            </p>
-            <div className="batas-hero__divider" />
-            <p className="batas-hero__manifesto">
-              Каждый клинок — единственный в своём роде.
-            </p>
-            <button onClick={() => scrollTo("collections")} className="batas-btn batas-btn--gold batas-anim" style={{ animationDelay: "0.9s", marginTop: "2.5rem" }}>
-              Открыть коллекцию
-            </button>
+        <div className="batas-hero__center batas-anim" style={{ animationDelay: "0.4s" }}>
+          <p className="batas-eyebrow batas-eyebrow--light">
+            Якутия · Народ Саха
+          </p>
+          <div className="batas-hero__logo-block">
+            <img src={LOGO_IMG} alt="БАТАС" className="batas-hero__logo-img" />
           </div>
-
-          {/* Правая часть — нож */}
-          <div className="batas-hero__right batas-anim" style={{ animationDelay: "0.7s" }}>
-            <div className="batas-hero__knife-frame">
-              <img src={KNIFE_HERO_IMG} alt="Якутский нож БАТАС" className="batas-hero__knife-img" />
-              <div className="batas-hero__knife-glow" />
-            </div>
-          </div>
+          <p className="batas-hero__tagline">
+            Премиальные якутские ножи
+          </p>
+          <div className="batas-hero__divider" />
+          <p className="batas-hero__manifesto">
+            Каждый клинок — единственный в своём роде.
+          </p>
+          <button onClick={() => scrollTo("about")} className="batas-btn batas-btn--gold batas-anim" style={{ animationDelay: "0.9s", marginTop: "2.5rem" }}>
+            Открыть коллекцию
+          </button>
         </div>
 
         <div className="batas-scroll-hint">
@@ -190,13 +184,7 @@ export default function Index() {
           </div>
           <div className="batas-img-wrap">
             <div className="batas-img-glow" />
-            <img src={FORGE_IMG} alt="Нож на наковальне" className="batas-img batas-img--hover-color" />
-            <div className="batas-img-caption-overlay">
-              <div className="batas-img-caption">
-                <p className="batas-quote">«Каждый удар молота — это молитва»</p>
-                <p className="batas-quote-author">Айал Борисов, главный мастер</p>
-              </div>
-            </div>
+            <img src={KNIFE_ICE_IMG} alt="Нож BATAS на льду" className="batas-img batas-img--hover-color" style={{ objectFit: "cover" }} />
           </div>
         </div>
       </section>
@@ -263,7 +251,7 @@ export default function Index() {
       <section id="masters" className="batas-section batas-section--dark">
         <div className="batas-master-single">
           <div className="batas-master-single__img-wrap">
-            <img src={FORGE_IMG} alt="Василий Попов — Бааха Уус" className="batas-master-single__img" />
+            <img src={MASTER_IMG} alt="Василий Попов — Бааха Уус" className="batas-master-single__img" />
             <div className="batas-master-single__veil" />
           </div>
           <div className="batas-master-single__text">
@@ -288,7 +276,7 @@ export default function Index() {
         <div className="batas-two-col batas-two-col--reverse">
           <div className="batas-img-wrap">
             <div className="batas-img-glow" />
-            <img src={ICE_IMG} alt="Якутский нож" className="batas-img batas-img--tall" />
+            <img src={HORSE_SYMBOL_IMG} alt="Символ народа Саха" className="batas-img batas-img--tall" style={{ objectFit: "contain", background: "#0d0c0b" }} />
           </div>
           <div>
             <p className="batas-eyebrow">Производство</p>
@@ -320,10 +308,10 @@ export default function Index() {
           <h2 className="batas-h2">Изделия <em>BATAS</em></h2>
         </div>
         <div className="batas-cinema-main">
-          <img src={HERO_IMG} alt="Авторское изделие BATAS" className="batas-cinema-img batas-cinema-img--large" />
+          <img src={WATER_IMG} alt="Нож BATAS у реки" className="batas-cinema-img batas-cinema-img--large" />
           <div className="batas-cinema-side">
-            <img src={WATER_IMG} alt="Авторское изделие BATAS" className="batas-cinema-img batas-cinema-img--sm" />
-            <img src={COLLECTION_IMG} alt="Авторское изделие BATAS" className="batas-cinema-img batas-cinema-img--sm" />
+            <img src={GRASS_IMG} alt="Нож BATAS в травах" className="batas-cinema-img batas-cinema-img--sm" />
+            <img src={COLLECTION_IMG} alt="Изделие BATAS в коробке" className="batas-cinema-img batas-cinema-img--sm" />
           </div>
         </div>
         <div className="batas-cinema-caption">
@@ -505,31 +493,20 @@ export default function Index() {
         }
         .batas-hero__overlay2 {
           position: absolute; inset: 0;
-          background: linear-gradient(105deg, rgba(5,4,3,0.82) 0%, rgba(5,4,3,0.55) 50%, rgba(5,4,3,0.25) 100%);
+          background: rgba(5,4,3,0.55);
           z-index: 2;
         }
-        .batas-hero__layout {
+        .batas-hero__center {
           position: relative;
           z-index: 10;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
+          display: flex;
+          flex-direction: column;
           align-items: center;
-          width: 100%;
-          max-width: 1280px;
-          padding: 0 4rem;
+          text-align: center;
+          padding: 0 2rem;
           padding-top: 80px;
+          max-width: 640px;
         }
-        @media (max-width: 900px) {
-          .batas-hero__layout {
-            grid-template-columns: 1fr;
-            padding: 80px 1.5rem 0;
-            text-align: center;
-          }
-          .batas-hero__right { display: none; }
-        }
-        .batas-hero__left { display: flex; flex-direction: column; align-items: flex-start; }
-        @media (max-width: 900px) { .batas-hero__left { align-items: center; } }
 
         .batas-eyebrow--light { color: rgba(201,169,110,0.7); margin-bottom: 1.5rem; }
 
@@ -554,10 +531,9 @@ export default function Index() {
         .batas-hero__divider {
           width: 3rem;
           height: 1px;
-          background: linear-gradient(to right, #c9a96e, transparent);
-          margin-bottom: 1.5rem;
+          background: linear-gradient(to right, transparent, #c9a96e, transparent);
+          margin: 0 auto 1.5rem;
         }
-        @media (max-width: 900px) { .batas-hero__divider { margin: 0 auto 1.5rem; } }
         .batas-hero__manifesto {
           font-family: 'Cormorant Garamond', serif;
           font-size: clamp(1rem, 1.5vw, 1.15rem);
